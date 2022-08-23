@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
+  devise_group :user, contains: %i[employee reviewer]
+
   before_action :configure_sign_up_parameters, if: :devise_controller?
   before_action :configure_sign_in_parameters, if: :devise_controller?
-
-  devise_group :user, contains: %i[employee reviewer]
+  before_action :authenticate_user!
 
   protected
 
