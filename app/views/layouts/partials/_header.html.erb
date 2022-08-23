@@ -1,5 +1,17 @@
-<% if reviewer_signed_in?%>
+<% if employee_signed_in?%>
   <nav>
+    <h1><%= "Hi #{current_employee.first_name}"%></h1>
+    <%= button_to 'Logo Out', destroy_employee_session_path, method: :delete%>
+  </nav>
+
+<% elsif reviewer_signed_in?%>
+  <nav>
+    <h1><%= "Hi #{current_reviewer.first_name}"%></h1>
     <%= button_to 'Logo Out', destroy_reviewer_session_path, method: :delete%>
+  </nav>
+<% else %>
+  <nav>
+    <div><%= button_to 'As Employee', new_employee_session_path, method: :get%></div>
+    <div><%= button_to 'As Reviewer', new_reviewer_session_path, method: :get%></div>
   </nav>
 <% end %>
