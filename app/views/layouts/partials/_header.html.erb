@@ -1,0 +1,5 @@
+<% if reviewer_signed_in?%>
+  <nav>
+    <%= button_to 'Logo Out', destroy_reviewer_session_path, method: :delete%>
+  </nav>
+<% end %>
