@@ -10,8 +10,18 @@
     <%= button_to 'Logo Out', destroy_reviewer_session_path, method: :delete%>
   </nav>
 <% else %>
-  <nav>
-    <div><%= button_to 'As Employee', new_employee_session_path, method: :get%></div>
-    <div><%= button_to 'As Reviewer', new_reviewer_session_path, method: :get%></div>
-  </nav>
+  
+<nav class="navbar navbar-expand-lg position-fixed container-fluid justify-content-end p-3 mb-2 bg-success text-white">
+    <ul class="nav">
+      <li class="nav-item dropdown">
+        <button  class="btn btn-light text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          SIGN IN AS
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="<%= new_employee_session_path%>">Employee</a></li>
+          <li><a class="dropdown-item" href="<%= new_reviewer_session_path%>">Reviewer</a></li>
+        </ul>
+      </li>
+    </ul>
+</nav>
 <% end %>
