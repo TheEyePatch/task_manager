@@ -6,4 +6,8 @@ class Output < ApplicationRecord
 
   has_rich_text :remarks_one
   has_rich_text :remarks_two
+
+  scope :with_date, ->(start_date, end_date) {
+    where(date: start_date..end_date) if start_date.present? && end_date.present?
+  }
 end

@@ -1,0 +1,17 @@
+<div class="btn-group" role="group" aria-label="Date Range">
+  <% %w[today yesterday this_week].each do |day|%>
+    <%= button_to day.capitalize, path, params: {date: day}, class:'btn btn-outline-dark', method: :get%>
+  <%end%>
+</div>
+<%= form_with(url: path, method: :get, local: true, html: { class: 'd-flex' }) do |f|%>
+<div class='form-group mx-1 d-flex align-items-center'>
+  <%= f.text_field :start_date, placeholder: 'Start Date: 2022-08-21', class: 'form-control', style:'width: fit-content;'%>
+</div>
+<div class='form-group mx-1 d-flex align-items-center'>
+  <%= f.text_field :end_date, placeholder: 'End Date: 2022-08-21', class: 'form-control', style:'width: fit-content;'%>
+</div>
+<div class='form-group mx-1 d-flex align-items-center'>
+  <%= f.submit 'Search', class: 'btn btn-primary'%>
+</div>
+<%end%>
+
