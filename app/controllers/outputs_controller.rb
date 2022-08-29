@@ -8,7 +8,14 @@ class OutputsController < ApplicationController
 
   def update
     @output = @outputs.find(params[:id])
-    @output.update(remarks_one: params[:remarks_one])
+    remarks =
+      if params[:remarks_one].present?
+       { remarks_one: params[:remarks_one] }
+      elsif params[:remarks_two].present?
+        { remarks_two: params[:remarks_two] }
+      end
+
+    @output.update(remarks)
 
     if @output.save
       redirect_to root_path
