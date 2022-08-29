@@ -4,12 +4,12 @@
     <table class="table table-success table-striped table-hover align-middle">
       <tr>
         <th rowspan='2'>User ID</th>
+        <th rowspan='2'>Date</th>
         <th rowspan='2'>Name</th>
         <th colspan='2'>Regular</th>
         <th colspan='2'>OverTime</th>
         <th rowspan='2'>Remarks 1</th>
         <th rowspan='2'>Remarks 2</th>
-        <th rowspan='2'>Date</th>
       </tr>
 
       <tr>
@@ -21,16 +21,16 @@
 
       <tbody>
       <%@outputs.each do |output|%>
-        <tr>
-          <td><%= output.employee.office_num%></td>
-          <td><%= "Lst Name,#{output.employee.first_name}" %></td>
-          <td><%= output.regular_work&.work_hrs%></td>
-          <td><%= output.regular_work&.work_num%></td>
-          <td><%= output.overtime_work&.work_hrs%></td>
-          <td><%= output.overtime_work&.work_num%></td>
-          <td><%= output.remarks_one%></td>
-          <td><%= output.remarks_two%></td>
-          <td><%= output.date%></td>
+        <tr class>
+          <td class='table-columns'><%= output.employee.office_num%></td>
+          <td class='table-columns'><%= output.date%></td>
+          <td class='table-columns'><%= "Lst Name,#{output.employee.first_name}" %></td>
+          <td class='table-columns'><%= output.regular_work&.work_hrs%></td>
+          <td class='table-columns'><%= output.regular_work&.work_num%></td>
+          <td class='table-columns'><%= output.overtime_work&.work_hrs%></td>
+          <td class='table-columns'><%= output.overtime_work&.work_num%></td>
+          <td class='table-columns'><%= output.remarks_one%></td>
+          <td class='table-columns'><%= output.remarks_two%></td>
         </tr>
       <%end%>
       </tbody>
