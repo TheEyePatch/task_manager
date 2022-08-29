@@ -1,4 +1,5 @@
 class OvertimesController < ApplicationController
+  before_action :authenticate_employee!
   before_action :fetch_output
 
   def new; end
@@ -17,12 +18,11 @@ class OvertimesController < ApplicationController
   private
 
   def fetch_output
-    binding.pry
     @output ||= current_employee.outputs.find_or_create_by(date: params.dig(:work_overtime, :date))
   end
 
   def authenticate_employee!
-    redirect_to outputs_path, alert: 'Must be an Employee'
+    return redirect_to outputs_path, alert: ['Must be an Employee'] unless employee_signed_in?
   end
 
   def overtime_params

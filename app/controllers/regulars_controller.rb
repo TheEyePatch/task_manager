@@ -1,4 +1,5 @@
 class RegularsController < ApplicationController
+  before_action :authenticate_employee!
   before_action :fetch_output
 
   def create
@@ -19,7 +20,7 @@ class RegularsController < ApplicationController
   end
 
   def authenticate_employee!
-    redirect_to outputs_path, alert: 'Must be an Employee'
+    return redirect_to outputs_path, alert: ['Must be an Employee'] unless employee_signed_in?
   end
 
   def regular_params
