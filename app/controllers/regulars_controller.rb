@@ -2,7 +2,7 @@ class RegularsController < ApplicationController
   before_action :fetch_output
 
   def create
-    return redirect_to root_path, alert:'Regular Work already Exists!' if @output.regular_work
+    return redirect_to root_path, alert: ['Work already Exists!'] if @output.regular_work
 
     @work_regular = @output.build_regular_work(regular_params)
     if @work_regular.valid? && @work_regular.save
@@ -15,7 +15,7 @@ class RegularsController < ApplicationController
   private
 
   def fetch_output
-    @output ||= current_employee.outputs.find_or_create_by(date: params[:date])
+    @output ||= current_employee.outputs.find_or_create_by(date: params.dig(:work_regular, :date))
   end
 
   def authenticate_employee!
