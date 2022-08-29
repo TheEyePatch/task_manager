@@ -3,4 +3,7 @@ class Output < ApplicationRecord
   validates :employee_id, uniqueness: { scope: %i[date] }
   has_one :overtime_work, class_name: 'Work::Overtime'
   has_one :regular_work, class_name: 'Work::Regular'
+
+  has_rich_text :remarks_one
+  has_rich_text :remarks_two
 end
