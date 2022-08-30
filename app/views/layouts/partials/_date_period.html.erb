@@ -1,6 +1,6 @@
 <div class="btn-group" role="group" aria-label="Date Range">
   <% %w[today yesterday this_week].each do |day|%>
-    <%= button_to day.capitalize, path, params: {date: day}, class:'btn btn-outline-dark', method: :get%>
+    <%= button_to day.capitalize, path, params: {date: day}, class:'btn btn-outline-primary', method: :get%>
   <%end%>
 </div>
 <%= form_with(url: path, method: :get, local: true, html: { class: 'd-flex' }) do |f|%>

@@ -32,22 +32,33 @@ class OutputsController < ApplicationController
                       .with_rich_text_remarks_one
                       .with_rich_text_remarks_two
                       .with_date(@start_date, @end_date)
+                      .order(date: :asc)
+                      .page(params[:page]).per(5)
+
     elsif reviewer_signed_in?
       Output.includes(:regular_work, :overtime_work, :employee)
             .with_rich_text_remarks_one
             .with_rich_text_remarks_two
             .with_date(@start_date, @end_date)
+            .order(date: :asc)
+            .page(params[:page]).per(5)
     end
   end
 
   def fetch_date_range
     @date = params[:date]
     if params[:start_date].present? && params[:end_date].present?
-      @start_date, @end_date = params[:start_date].to_date, params[:end_date].to_date
-    elsif @date == 'yesterday'
+      return @start_date, @end_date = params[:start_date].to_date, params[:end_date].to_date
+    end
+
+    case @date
+    when 'yesterday'
       @start_date, @end_date = Date.yesterday, Date.yesterday
-    elsif @date == 'today' || params[:date].blank?
+    when 'today'
       @start_date, @end_date = Date.current, Date.current
+    # when 'this_week'
+    #   @start_date =Date.current.beginning_of_week
+    #   @end_date = Date.current
     end
   end
 end

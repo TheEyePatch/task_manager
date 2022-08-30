@@ -1,0 +1,124 @@
+# 缺 vi
+---
+en:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total
+      one_page:
+        display_entries:
+          one: Displaying <b>1</b> %{entry_name}
+          other: Displaying <b>all %{count}</b> %{entry_name}
+          zero: No %{entry_name} found
+  views:
+    pagination:
+      first: First
+      last: Last
+      next: Next
+      previous: Prev
+      truncate: "&hellip;"
+
+zh-TW:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "顯示 <b>%{first}&nbsp;-&nbsp;%{last}</b> 筆 %{entry_name}，共 <b>%{total}</b> 筆"
+      one_page:
+        display_entries:
+          one: "只有 <b>1</b> 筆 %{entry_name}"
+          other: "顯示 <b>所有 %{count}</b> 筆 %{entry_name}"
+          zero: "找不到 %{entry_name}"
+  views:
+    pagination:
+      first: 第一頁
+      last: 最後一頁
+      next: 下一頁
+      previous: 上一頁
+      truncate: "&hellip;"
+
+zh-CN:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "显示 <b>%{first}&nbsp;-&nbsp;%{last}</b> 笔 %{entry_name}，共 <b>%{total}</b> 笔"
+      one_page:
+        display_entries:
+          one: "只有 <b>1</b> 笔 %{entry_name}"
+          other: "显示 <b>所有 %{count}</b> 笔 %{entry_name}"
+          zero: "找不到 %{entry_name}"
+  views:
+    pagination:
+      first: 第一页
+      last: 最后一页
+      next: 下一页
+      previous: 上一页
+      truncate: "&hellip;"
+
+es:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: Mostrando <b>%{first}&nbsp;-&nbsp;%{last}</b> %{entry_name} de <b>%{total}</b> en total
+      one_page:
+        display_entries:
+          one: Mostrando <b>%{count}</b> %{entry_name}
+          other: Mostrando <b>un total de %{count}</b> %{entry_name}
+          zero: No se han encontrado %{entry_name}
+  views:
+    pagination:
+      first: "Primera"
+      last: "Última"
+      next: Siguiente
+      previous: "Anterior"
+      truncate: "&hellip;"
+
+ja:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "<b>%{total}</b>中の%{entry_name}を表示しています <b>%{first} - %{last}</b>"
+      one_page:
+        display_entries:
+          one: "<b>%{count}</b>レコード表示中です %{entry_name}"
+          other: "<b>%{count}</b>レコード表示中です %{entry_name}"
+          zero: "レコードが見つかりませんでした %{entry_name}"
+  views:
+    pagination:
+      first: "最初"
+      last: "最後"
+      next: "次"
+      previous: "前"
+      truncate: "&hellip;"
+
+th:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "กำลังแสดงผล %{entry_name} <b>%{first}&nbps;-&nbps;%{last}</b> จากทั้งหมด <b>%{total}</b> หน้า"
+      one_page:
+        display_entries: "กำลังแสดงผล <b>ทั้งหมด %{count}</b> %{entry_name}"
+  views:
+    pagination:
+      first: "หน้าแรก"
+      last: "หน้าสุดท้าย"
+      next: "ถัดไป"
+      previous: "ก่อนหน้า"
+      truncate: "&hellip;"
+
+vi:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Biểu thị <b>%{first}&nbsp;-&nbsp;%{last}</b> cây bút %{entry_name}，Toàn bộ <b>%{total}</b>"
+      one_page:
+        display_entries:
+          one: "Chỉ  <b>1</b>  %{entry_name}"
+          other: "Biểu thị  <b>Hiển thị tất cả %{count}</b> %{entry_name}"
+          zero: "Không tìm thấy %{entry_name}"
+  views:
+    pagination:
+      first: Trang đầu tiên
+      last: trang cuối cùng
+      next: Trang tiếp theo
+      previous: Trang trước
+      truncate: "&hellip;"

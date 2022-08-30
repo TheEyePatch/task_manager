@@ -1,0 +1,7 @@
+<% unless current_page.last?  %>
+<li class="page-item">
+  <%= link_to url, remote: remote, class: 'page-link' do %>
+    <span class="title"><%=  t('views.pagination.last') %></span>
+  <% end %>
+</li>
+<% end %>
