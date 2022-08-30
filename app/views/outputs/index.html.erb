@@ -13,10 +13,10 @@
 <section class = 'pt-5 container-fluid bg-success bg-opacity-10 min-vh-100'>
   <div class='container-fluid mt-5 position-relative top-0 d-flex'>
     <%= render partial: 'layouts/partials/date_period', locals: { path: outputs_path }%>
-    <form action="<%= outputs_path(format: :xlsx)%>">
-      <button type='submit' class='btn btn-primary' method='get'>Export</button>
-    </form>
-    
+    <%= form_with(url: outputs_path(format: :xlsx), method: :get, local: true) do |f|%>
+      <%= f.text_field :date, value: @date, hidden: true%>
+      <%=f.submit 'Export', class: 'btn btn-primary'%>
+    <%end%>
   </div>
   <div class='container-fluid p-3 table-responsive'>
     <h1 class='mb-3'>OutPut List</h1>

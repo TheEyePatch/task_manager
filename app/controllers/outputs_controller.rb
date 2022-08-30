@@ -51,7 +51,7 @@ class OutputsController < ApplicationController
   end
 
   def fetch_date_range
-    @date = params[:date]
+    @date = params[:date] || 'today'
     if params[:start_date].present? && params[:end_date].present?
       return @start_date, @end_date = params[:start_date].to_date, params[:end_date].to_date
     end

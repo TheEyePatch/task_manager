@@ -23,7 +23,7 @@ wb.add_worksheet(name: "Outputs") do |sheet|
   @output_without_pagination.each_with_index do |output, index|
     sheet.add_row [ 
       output.employee.office_num,
-      output.date,
+      output.date.to_s,
       output.employee.first_name,
       output.regular_work&.work_hrs,
       output.regular_work&.work_num,
