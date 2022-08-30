@@ -2,7 +2,14 @@ class OutputsController < ApplicationController
   before_action :fetch_date_range, only: %i[index]
   before_action :fetch_outputs, only: %i[index update]
 
-  def index; end
+  def index
+    @output_without_pagination = @outputs
+    @outputs = @outputs.page(params[:page]).per(5)
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+  end
 
   def edit; end
 
@@ -33,7 +40,6 @@ class OutputsController < ApplicationController
                       .with_rich_text_remarks_two
                       .with_date(@start_date, @end_date)
                       .order(date: :asc)
-                      .page(params[:page]).per(5)
 
     elsif reviewer_signed_in?
       Output.includes(:regular_work, :overtime_work, :employee)
@@ -41,7 +47,6 @@ class OutputsController < ApplicationController
             .with_rich_text_remarks_two
             .with_date(@start_date, @end_date)
             .order(date: :asc)
-            .page(params[:page]).per(5)
     end
   end
 
