@@ -61,9 +61,11 @@ class OutputsController < ApplicationController
       @start_date, @end_date = Date.yesterday, Date.yesterday
     when 'today'
       @start_date, @end_date = Date.current, Date.current
-    # when 'this_week'
-    #   @start_date =Date.current.beginning_of_week
-    #   @end_date = Date.current
+    when 'this_week'
+      @start_date = Date.current.beginning_of_week
+      @end_date = Date.current
+    else
+      @start_date, @end_date = Date.current, Date.current
     end
   end
 end
