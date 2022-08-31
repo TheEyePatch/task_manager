@@ -29,7 +29,7 @@ class OutputsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def fetch_outputs
     @outputs =
