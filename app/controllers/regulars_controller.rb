@@ -13,6 +13,20 @@ class RegularsController < ApplicationController
     end
   end
 
+  def edit
+    @regular_work = Work::Regular.find(params[:id])
+  end
+
+  def update
+    @regular_work = Work::Regular.find(params[:id])
+    @regular_work.update(regular_params)
+    if  @regular_work.valid? && @regular_work.save
+      redirect_to root_path, notice: ['Work Updated Successfully']
+    else
+      redirect_to root_path, alert: @work_regular.errors.full_messages
+    end
+  end
+
   private
 
   def fetch_output

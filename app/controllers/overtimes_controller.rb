@@ -15,6 +15,21 @@ class OvertimesController < ApplicationController
     end
   end
 
+  def edit
+    @overtime_work = Work::Overtime.find(params[:id])
+  end
+
+  def update
+    @overtime_work = Work::Overtime.find(params[:id])
+    @overtime_work.update(overtime_params)
+
+    if  @overtime_work.valid? && @overtime_work.save
+      redirect_to root_path, notice: ['Work Updated Successfully']
+    else
+      redirect_to root_path, alert: @overtime.errors.full_messages
+    end
+  end
+
   private
 
   def fetch_output

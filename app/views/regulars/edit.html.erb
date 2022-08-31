@@ -1,0 +1,22 @@
+<section class="d-flex justify-content-center align-items-center container-fluid bg-success bg-opacity-10 min-vh-100">
+  <div class="border p-5 shadow-sm mb-5 rounded-2 bg-light">
+    <h2><%= @regular_work.class.name%></h2>
+    <h4>(<%= @regular_work.output.date%>)</h4>
+    <%= form_with(model: @regular_work, url: regular_path(@regular_work.id), method: :patch, local: true) do |f| %>
+        <div class="modal-body">
+          <div class='form-group'>
+            <%= f.label :work_hrs, 'Work Hours'%>
+            <%= f.number_field :work_hrs, value: @regular_work.work_hrs, class: 'form-control'%>
+          </div>
+          <div class='form-group'>
+            <%= f.label :work_num, 'Work Claims'%>
+             <%= f.number_field :work_num, value: @regular_work.work_num, class: 'form-control'%>
+          </div>  
+        </div>
+        <div class="modal-footer mt-3">
+          <a href="<%= outputs_path%>"><button type="button" class="btn btn-secondary mx-1" href="" ,method='get'>Cancel</button></a>
+          <%= f.submit 'submit', class: 'btn btn-primary'%>
+        </div>
+      <%end%>
+  </div>
+</section>

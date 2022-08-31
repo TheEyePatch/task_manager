@@ -40,6 +40,9 @@
         <th colspan='2'>OverTime</th>
         <th rowspan='2'>Remarks 1</th>
         <th rowspan='2'>Remarks 2</th>
+        <% if employee_signed_in?%>
+        <th colspan='2' rowspan='2'>Actions</th>
+        <%end%>
       </tr>
 
       <tr>
@@ -79,6 +82,14 @@
               <i>- blank -</i>
             <%end%>
           </td>
+          <% if employee_signed_in?%>
+          <td class='table-columns'>
+            <%= link_to "Edit Regular", edit_regular_path(output.regular_work.id)%>
+          </td>
+          <td class='table-columns'>
+            <%= link_to "Edit Overtime", edit_overtime_path(output.overtime_work.id)%>
+          </td>
+          <%end%>
         </tr>
       <%end%>
       </tbody>
