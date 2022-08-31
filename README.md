@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+``` bash
+version tools
 
-* Ruby version
+ruby 2.7.2
+nodejs v12.18.3
+yarn 1.22.19
+Rails 6.0.5.1
+postgres (PostgreSQL) 13.2
 
-* System dependencies
+```
 
-* Configuration
+For installing Ruby, NodeJS and Yarn, suggest using `asdf` or `nvm` version managers.
 
-* Database creation
+asdf: `https://asdf-vm.com/`
+nvm: `https://github.com/nvm-sh/nvm`
 
-* Database initialization
+```bash
+e.g. for asdf ruby
 
-* How to run the test suite
+asdf install ruby 2.7.2
+asdf reshim ruby
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+For installing Rails on Windows, might need to install WSL
+`https://docs.microsoft.com/en-us/windows/wsl/install-win10`
+Install Ubuntu v 20 (Don't forget to restart before doing so)
 
-* Deployment instructions
 
-* ...
+
