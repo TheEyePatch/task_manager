@@ -21,6 +21,11 @@
       </div>
 
       <div class="field mb-3">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, autofocus: true, html: { class:"form-control" } %>
+      </div>
+
+      <div class="field mb-3">
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>

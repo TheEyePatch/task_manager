@@ -35,7 +35,8 @@
       <tr>
         <th rowspan='2'>User ID</th>
         <th rowspan='2'>Date</th>
-        <th rowspan='2'>Name</th>
+        <th rowspan='2'>Last Name</th>
+        <th rowspan='2'>First Name</th>
         <th colspan='2'>Regular</th>
         <th colspan='2'>OverTime</th>
         <th rowspan='2'>Remarks 1</th>
@@ -57,7 +58,8 @@
         <tr class>
           <td class='table-columns'><%= output.employee.office_num%></td>
           <td class='table-columns'><%= output.date%></td>
-          <td class='table-columns'><%= "Lst Name,#{output.employee.first_name}" %></td>
+          <td class='table-columns'><%= output.employee.last_name %></td>
+          <td class='table-columns'><%= output.employee.first_name %></td>
           <td class='table-columns'><%= output.regular_work&.work_hrs%></td>
           <td class='table-columns'><%= output.regular_work&.work_num%></td>
           <td class='table-columns'><%= output.overtime_work&.work_hrs%></td>
@@ -84,10 +86,18 @@
           </td>
           <% if employee_signed_in?%>
           <td class='table-columns'>
-            <%= link_to "Edit Regular", edit_regular_path(output.regular_work.id)%>
+            <%if output.regular_work.present?%>
+              <%= link_to "Edit Regular", edit_regular_path(output.regular_work.id)%>
+            <%else%>
+              Regular Blank
+            <%end%>
           </td>
           <td class='table-columns'>
-            <%= link_to "Edit Overtime", edit_overtime_path(output.overtime_work.id)%>
+            <%if output.overtime_work.present?%>
+              <%= link_to "Edit Overtime", edit_overtime_path(output.overtime_work.id)%>
+            <%else%>
+              Overtime Blank
+            <%end%>
           </td>
           <%end%>
         </tr>
