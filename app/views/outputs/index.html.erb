@@ -14,7 +14,8 @@
   <div class='container-fluid mt-5 position-relative top-0 d-flex'>
     <%= render partial: 'layouts/partials/date_period', locals: { path: outputs_path }%>
     <%= form_with(url: outputs_path(format: :xlsx), method: :get, local: true) do |f|%>
-      <%= f.text_field :date, value: @date, hidden: true%>
+      <%= f.date_field :start_date, value: @start_date, hidden: true%>
+      <%= f.date_field :end_date, value: @end_date, hidden: true%>
       <%=f.submit 'Export', class: 'btn btn-primary'%>
     <%end%>
   </div>

@@ -5,10 +5,10 @@
 </div>
 <%= form_with(url: path, method: :get, local: true, html: { class: 'd-flex' }) do |f|%>
 <div class='form-group mx-1 d-flex align-items-center'>
-  <%= f.text_field :start_date, placeholder: 'Start Date: 2022-08-21', class: 'form-control', style:'width: fit-content;'%>
+  <%= f.date_field :start_date, placeholder: 'Start Date: 2022-08-21', class: 'form-control', style:'width: fit-content;'%>
 </div>
 <div class='form-group mx-1 d-flex align-items-center'>
-  <%= f.text_field :end_date, placeholder: 'End Date: 2022-08-21', class: 'form-control', style:'width: fit-content;'%>
+  <%= f.date_field :end_date, placeholder: 'End Date: 2022-08-21', class: 'form-control', style:'width: fit-content;'%>
 </div>
 <div class='form-group mx-1 d-flex align-items-center'>
   <%= f.submit 'Search', class: 'btn btn-primary'%>

@@ -4,7 +4,7 @@ class OutputsController < ApplicationController
 
   def index
     @output_without_pagination = @outputs
-    @outputs = @outputs.page(params[:page]).per(5)
+    @outputs = @outputs.page(params[:page]).per(15)
     respond_to do |format|
       format.html
       format.xlsx
@@ -53,7 +53,8 @@ class OutputsController < ApplicationController
   def fetch_date_range
     @date = params[:date] || 'today'
     if params[:start_date].present? && params[:end_date].present?
-      return @start_date, @end_date = params[:start_date].to_date, params[:end_date].to_date
+      @start_date, @end_date = [params[:start_date].to_date, params[:end_date].to_date]
+      return 
     end
 
     case @date
